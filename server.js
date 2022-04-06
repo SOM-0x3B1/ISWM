@@ -16,7 +16,7 @@ const httpsServer = https.createServer(credentials, app);
 
 let visits = 0;
 
-app.get('/', function (req, res) {
+app.get('/', function (_, res) {
     res.sendFile(path.join(__dirname + '/public/home.html'))
     visits++;
 })
