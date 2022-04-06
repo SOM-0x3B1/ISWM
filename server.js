@@ -1,32 +1,43 @@
-import { createServer as HTTPS_Server } from 'https';
-import { createServer as HTTP_Server } from 'http';
-import express, { urlencoded } from 'express';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-
+const express = require('express');
+const path = require('path');
 const app = express();
-const https = HTTPS_Server({
-	key: readFileSync('cert/_.onekilobit.eu-key.pem', 'utf8'),
-	cert: readFileSync('cert/_.onekilobit.eu-crt.pem', 'utf8')
-}, app);
+const http = require('http');
+const https = require('https');
 
-app.use(urlencoded({ extended: true }));
+const cron = require('node-cron');
 
-app.get('/', (_, res) => {
-	res.sendFile(join(__dirname, '/public/index.html'));
+const fs = require('fs');
+const { urlencoded } = require('express');
+const privateKey = fs.readFileSync('cert/onekilobit.eu-key.pem', 'utf8');
+const certificate = fs.readFileSync('cert/onekilobit.eu-crt.pem', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+const httpsServer = https.createServer(credentials, app); 
+
+
+let visits = 0;
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/home.html'))
+    visits++;
+})
+
+app.get('*', function (req, res) {
+    if(req.path.includes('.')){
+        res.sendFile(path.join(__dirname + '/public/' + req.path))
+    } else{
+        res.sendFile(path.join(__dirname + '/public/' + req.path + '.html'))
+    }
+})
+
+
+//00 00 12 * * 0-6
+cron.schedule('0 * * * *', () => {
+    console.log("Home visits so far: " + visits);
 });
 
-app.get('*', (req, res) => {
-	res.sendFile(
-		join(__dirname, '/public/', req.path,
-			req.path.includes('.') ? '.html' : ''
-	));
-});
-
-// Just to redirect the default http://onekilobit.eu to https://www.onekilobit.eu
-HTTP_Server((req, res) => {
-	res.writeHead(301, { Location: `https://www.${req.headers.host}${req.url}` });
-	res.end();
+http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://www." + req.headers['host'] + req.url });
+    res.end();
 }).listen(80);
 
-https.listen(443);
+httpsServer.listen(443, function () { });

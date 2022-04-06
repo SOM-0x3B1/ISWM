@@ -1,0 +1,9 @@
+/cert
+/node_modules
+/res
+/public/media
+*.png
+*.jpg
+*.mp3
+*.mp4
+config.json
