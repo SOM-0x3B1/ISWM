@@ -71,12 +71,12 @@ h2 , p{
 
 #progressbar{
     position: relative;
-    width: 90%;
+    width: 18em;
     height: 6ex;
     border: solid;
     margin: auto;
     margin-top: 4ex;
-    margin-bottom: 4ex;
+    margin-bottom: 4ex;    
 }
 
 #progress{
@@ -86,7 +86,7 @@ h2 , p{
     background-color: rgb(56, 88, 63);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);    
 }
 
 #percentage{
@@ -96,4 +96,11 @@ h2 , p{
     position: absolute;
     z-index: 5000;    
     font-size: 40pt;
+}
+
+#fill{
+    height: 100%;
+    width: 0%;
+    background-color: var(--main-foreground-color);
+    transition: width 2s;
 }
