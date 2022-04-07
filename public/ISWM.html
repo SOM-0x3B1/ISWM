@@ -11,21 +11,27 @@
 </head>
 <body>
     <main class="crt">
-        <div id="centerPanel">
-            <h2>REBOOTING UNIVERSE <br> PLEASE STAND BY</h2>
+        <div id="centerPanel">            
+            <div id="connect" onclick="connect()">connect</div>            
+
+            <h2 id="h2"></h2>
+            <span id="cursorSpan"><div id="cursor">▮</div></span>
 
             <div id="progressbar">                
                 <div id="progress">
-                    <div id="percentage">0.02%</div>
+                    <div id="percentage">0.00%</div>
                     <div id="fill"></div>
                 </div>
             </div>
 
-            <p>ESTIMATED TIME REMAINING:</p>
-            <p id="time">- DAYS - HOURS - MINUTES - SECONDS</p>
+            <p id="p_1">ESTIMATED TIME REMAINING:</p>
+            <p id="time">- DAYS - HOURS - MINUTES - SECONDS</p>            
         </div>
-    </main>
+    </main>    
+
+    <div id="overlay"></div>
     
+    <script src="js/audio.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

@@ -8,17 +8,65 @@ const pMinute = pSecond * 60;
 const pHour = pMinute * 60;
 const pDay = pHour * 24;
 
-const countDownDate = new Date("2022-05-02T19:00:00.000+02:00").getTime();
-const originDate = new Date("2022-04-04T19:00:00.000+02:00").getTime();
+const countDownDate = new Date("2022-04-08T12:00:00.000+02:00").getTime();
+const originDate = new Date("2022-04-07T19:00:00.000+02:00").getTime();
 
+const h2_1 = "REBOOTING UNIVERSE";
+const h2_2 = "PLEASE STAND BY";
 
-async function connect(){
-    
+async function connect() {
+    document.getElementById('connect').remove();
+
+    astartup.play();
+
+    let cursor = document.getElementById('cursor');
+    cursor.style.display='inline-block';
+
+    let h2 = document.getElementById('h2');
+    for (let i = 0; i < h2_1.length; i++) {
+        h2.innerHTML += h2_1[i];
+        await sleep(50);        
+    }
+    await sleep(200);   
+    h2.innerHTML += '<br>';
+    for (let i = 0; i < h2_2.length; i++) {
+        h2.innerHTML += h2_2[i];
+        await sleep(50);
+    }
+
+    cursor.style.animation = 'blink 0.9s infinite';
+
+    await sleep(1200);
+    let  progressbar = document.getElementById('progressbar');
+    progressbar.style.border = 'solid';
+    progressbar.style.width = '18em';
+
+    await sleep(500);
+    document.getElementById('percentage').style.display = 'block';
+
+    await sleep(100);
+    let p_1 = document.getElementById('p_1');
+    p_1.style.opacity = 1;
+    await sleep(30);
+    p_1.style.background = 'var(--main-background-color)'
+
+    await sleep(100);
+    let time = document.getElementById('time');
+    time.style.opacity = 1;
+    await sleep(100);
+    time.style.background = 'var(--main-background-color)'
+
+    startCountDown();
 }
 
 function startCountDown() {
+    abg.play();
+
+    let lastPercentage = "0%";
+
     let x = setInterval(() => {
         let now = new Date().getTime();
+        
 
         // Find the distance between now and the count down date
         let distance = countDownDate - now;
@@ -34,8 +82,14 @@ function startCountDown() {
             + minutes + " MINUTES " + seconds + " SECONDS ";
 
         let percentage = (Math.round((100 - (countDownDate - now) / (countDownDate - originDate) * 100) * 100) / 100) + '%'
-        document.getElementById("percentage").innerText = percentage;
-        document.getElementById("fill").style.width = percentage;
+        
+
+        if(percentage != lastPercentage){
+            aupdate.play();
+            lastPercentage = percentage;      
+            document.getElementById("percentage").innerText = percentage;
+            document.getElementById("fill").style.width = percentage;      
+        }
 
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -43,4 +97,8 @@ function startCountDown() {
             document.getElementById("time").innerHTML = "REBOOTED";
         }
     }, 1000);
+}
+
+async function sleep(ms){
+    await new Promise(r => setTimeout(r, ms));
 }
