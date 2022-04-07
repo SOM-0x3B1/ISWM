@@ -1,23 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html prefix="og: https://ogp.me/ns#" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIVERSAL COLLAPSE DETECTED</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="css/iswm.css">
     <link rel="stylesheet" href="css/crt.css">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" href="media/Ethernet_card.png">
+
+    <title>UNIVERSAL_COLLAPSE_DETECTED</title>
+    <meta name="description" content="A fan-made countdown website for In Space with Markiplier: Part 2">
+	<meta name="keywords" content="markiplier, in space with markiplier, countdown, universal, part 2">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://www.onekilobit.eu/iswm/countdown">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="UNIVERSAL_COLLAPSE_DETECTED">
+	<meta property="og:description"
+		content="A fan-made countdown website for In Space with Markiplier: Part 2">
+	<meta property="og:image" content="https://www.onekilobit.eu/media/prew/iswm.jpg">
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="onekilobit.eu">
+	<meta property="twitter:url" content="https://www.onekilobit.eu/iswm/countdown">
+	<meta name="twitter:title" content="UNIVERSAL_COLLAPSE_DETECTED">
+	<meta name="twitter:description"
+		content="A fan-made countdown website for In Space with Markiplier: Part 2">
+	<meta name="twitter:image" content="https://www.onekilobit.eu/media/prew/iswm.jpg">
 </head>
+
 <body>
     <main class="crt">
-        <div id="centerPanel">            
-            <div id="connect" onclick="connect()">connect</div>            
+        <div id="centerPanel">
+            <div id="connect" onclick="connect()">connect</div>
 
             <h2 id="h2"></h2>
-            <span id="cursorSpan"><div id="cursor">▮</div></span>
+            <span id="cursorSpan">
+                <div id="cursor">▮</div>
+            </span>
 
-            <div id="progressbar">                
+            <div id="progressbar">
                 <div id="progress">
                     <div id="percentage">0.00%</div>
                     <div id="fill"></div>
@@ -25,13 +52,14 @@
             </div>
 
             <p id="p_1">ESTIMATED TIME REMAINING:</p>
-            <p id="time">- DAYS - HOURS - MINUTES - SECONDS</p>            
+            <p id="time">- DAYS - HOURS - MINUTES - SECONDS</p>
         </div>
-    </main>    
+    </main>
 
     <div id="overlay"></div>
-    
+
     <script src="js/audio.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

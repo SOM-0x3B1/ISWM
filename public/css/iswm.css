@@ -134,6 +134,7 @@ p{
     transform: translate(-50%, -50%);
     padding: 2ex;
     cursor: pointer;
+    text-shadow: 0 0 10px rgb(159, 255, 188);
 }
 
 #cursorSpan{

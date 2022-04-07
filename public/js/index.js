@@ -8,8 +8,8 @@ const pMinute = pSecond * 60;
 const pHour = pMinute * 60;
 const pDay = pHour * 24;
 
-const countDownDate = new Date("2022-04-08T12:00:00.000+02:00").getTime();
-const originDate = new Date("2022-04-07T19:00:00.000+02:00").getTime();
+const countDownDate = new Date("2022-05-02T21:00:00.000+02:00").getTime();
+const originDate = new Date("2022-04-04T21:00:00.000+02:00").getTime();
 
 const h2_1 = "REBOOTING UNIVERSE";
 const h2_2 = "PLEASE STAND BY";
