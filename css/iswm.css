@@ -113,12 +113,23 @@ p{
 
 #percentage{
     display: none;
-    text-align: right;
+    text-align: left;
     width: calc(100% - 0.4ex);
+    padding-left: 0.4ex;
     height: 100%;
     position: absolute;
     z-index: 5000;    
     font-size: 34pt;
+    color: var(--secondary-background-color);
+    text-shadow: 0 0 10px rgb(22, 26, 22);
+}
+#percentage::-moz-selection {
+    color: var(--main-foreground-color);
+    background: rgb(50, 126, 73);
+}
+#percentage::selection {
+    color: var(--main-foreground-color);
+    background: rgb(50, 126, 73);
 }
 
 #fill{
