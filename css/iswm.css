@@ -111,25 +111,38 @@ p{
     transform: translate(-50%, -50%);    
 }
 
-#percentage{
-    display: none;
-    text-align: left;
-    width: calc(100% - 0.4ex);
-    padding-left: 0.4ex;
-    height: 100%;
+
+.percentage{
     position: absolute;
-    z-index: 5000;    
+    display: none;
+    text-align: right;    
+    height: 100%;
+    z-index: 5000;  
     font-size: 34pt;
-    color: var(--secondary-background-color);
+    overflow: hidden;
+}
+#percentage1{    
+    right: 0;   
+    width: 100%;
+    color: var(--main-foreground-color);
     text-shadow: 0 0 10px rgb(22, 26, 22);
 }
-#percentage::-moz-selection {
-    color: var(--main-foreground-color);
-    background: rgb(50, 126, 73);
+#percentage2{
+    position: absolute;
+    left: 0;   
+    width: 0; 
+    color: rgb(29, 46, 33);
 }
-#percentage::selection {
-    color: var(--main-foreground-color);
-    background: rgb(50, 126, 73);
+#per2{
+    position: absolute;
+    right: -33.2%;
+}
+
+.percentage::-moz-selection {
+    filter: invert();
+}
+.percentage::selection {
+    filter: invert();
 }
 
 #fill{

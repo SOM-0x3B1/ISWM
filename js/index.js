@@ -17,18 +17,18 @@ const h2_2 = "PLEASE STAND BY";
 async function connect() {
     /*alogin.play();*/
     document.getElementById('connect').remove();
-    
+
     astartup.play();
 
     let cursor = document.getElementById('cursor');
-    cursor.style.display='inline-block';
+    cursor.style.display = 'inline-block';
 
     let h2 = document.getElementById('h2');
     for (let i = 0; i < h2_1.length; i++) {
         h2.innerHTML += h2_1[i];
-        await sleep(50);        
+        await sleep(50);
     }
-    await sleep(200);   
+    await sleep(200);
     h2.innerHTML += '<br>';
     for (let i = 0; i < h2_2.length; i++) {
         h2.innerHTML += h2_2[i];
@@ -38,12 +38,13 @@ async function connect() {
     cursor.style.animation = 'blink 0.9s infinite';
 
     await sleep(1200);
-    let  progressbar = document.getElementById('progressbar');
+    let progressbar = document.getElementById('progressbar');
     progressbar.style.border = 'solid';
     progressbar.style.width = '18em';
 
     await sleep(500);
-    document.getElementById('percentage').style.display = 'block';
+    document.getElementById('percentage1').style.display = 'block';
+    document.getElementById('percentage2').style.display = 'block';
 
     await sleep(100);
     let p_1 = document.getElementById('p_1');
@@ -67,7 +68,7 @@ function startCountDown() {
 
     let x = setInterval(() => {
         let now = new Date().getTime();
-        
+
 
         // Find the distance between now and the count down date
         let distance = countDownDate - now;
@@ -83,13 +84,21 @@ function startCountDown() {
             + minutes + " MINUTES " + seconds + " SECONDS ";
 
         let percentage = (Math.round((100 - (countDownDate - now) / (countDownDate - originDate) * 100) * 100) / 100) + '%'
-        
 
-        if(percentage != lastPercentage){
+
+        if (percentage != lastPercentage) {
             aupdate.play();
-            lastPercentage = percentage;      
-            document.getElementById("percentage").innerText = percentage;
-            document.getElementById("fill").style.width = percentage;      
+            lastPercentage = percentage;
+            let perc1 = document.getElementById("percentage1");
+            let perc2 = document.getElementById("percentage2");
+            let per2 = document.getElementById("per2");
+
+            perc1.innerText = percentage;
+            per2.innerText = percentage;
+
+            perc2.style.width = (parseFloat(percentage)) + '%';
+
+            document.getElementById("fill").style.width = percentage;
         }
 
         // If the count down is finished, write some text
@@ -100,6 +109,6 @@ function startCountDown() {
     }, 1000);
 }
 
-async function sleep(ms){
+async function sleep(ms) {
     await new Promise(r => setTimeout(r, ms));
 }
