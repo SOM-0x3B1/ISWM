@@ -43,8 +43,7 @@ async function connect() {
     progressbar.style.width = '18em';
 
     await sleep(500);
-    document.getElementById('percentage1').style.display = 'block';
-    document.getElementById('percentage2').style.display = 'block';
+    document.getElementById('percentage').style.display = 'block';
 
     await sleep(100);
     let p_1 = document.getElementById('p_1');
@@ -89,14 +88,9 @@ function startCountDown() {
         if (percentage != lastPercentage) {
             aupdate.play();
             lastPercentage = percentage;
-            let perc1 = document.getElementById("percentage1");
-            let perc2 = document.getElementById("percentage2");
-            let per2 = document.getElementById("per2");
+            let perc1 = document.getElementById("percentage");
 
             perc1.innerText = percentage;
-            per2.innerText = percentage;
-
-            perc2.style.width = (parseFloat(percentage)) + '%';
 
             document.getElementById("fill").style.width = percentage;
         }

@@ -118,24 +118,11 @@ p{
     text-align: right;    
     height: 100%;
     z-index: 5000;  
-    font-size: 34pt;
-    overflow: hidden;
-}
-#percentage1{    
+    font-size: 34pt;    
     right: 0;   
     width: 100%;
-    color: var(--main-foreground-color);
-    text-shadow: 0 0 10px rgb(22, 26, 22);
-}
-#percentage2{
-    position: absolute;
-    left: 0;   
-    width: 0; 
-    color: rgb(29, 46, 33);
-}
-#per2{
-    position: absolute;
-    right: -33.2%;
+    color: rgb(7, 17, 9);
+    text-shadow: 0 0 10px rgb(62, 110, 62);
 }
 
 .percentage::-moz-selection {
