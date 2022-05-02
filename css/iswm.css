@@ -159,7 +159,7 @@ p{
     position: absolute;
     top: 0;
     left: 0.1em;
-    transform: translate(0, -17%);
+    transform: translate(0, -25%);
     text-shadow: 0 0 20px var(--main-foreground-color);
     width: min-content;
 
