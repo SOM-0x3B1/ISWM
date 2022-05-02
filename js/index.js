@@ -95,7 +95,7 @@ function startCountDown() {
             document.getElementById("time").innerText = days + " DAYS " + hours + " HOURS "
                 + minutes + " MINUTES " + seconds + " SECONDS ";
 
-            let percentage = (Math.round((100 - (countDownDate - now) / (countDownDate - originDate) * 100) * 100) / 100) + '%'
+            let percentage = (Math.floor((100 - (countDownDate - now) / (countDownDate - originDate) * 100) * 100) / 100) + '%'
 
 
             if (percentage != lastPercentage) {
