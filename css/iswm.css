@@ -84,7 +84,6 @@ h2{
     height: 3ex;
 }
 p{
-    background-color: var(--main-foreground-color);
     opacity: 0;
 }
 
@@ -192,5 +191,62 @@ p{
 #bgvid{
     min-width: 100vw;
     min-height: 100vh;
-    opacity: 5%;
+    opacity: 15%;
+}
+
+#info{
+    display: none;
+    margin-top: 2ex;
+    width: 4em;
+    position: absolute;
+    transform: translate(-50%,0);
+    cursor: pointer;
+}
+#info:hover{
+    filter: invert(1);    
+}
+
+#infopanel{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background-color: var(--main-background-color);
+    border: solid;
+    border-color: var(--main-foreground-color);
+    padding: 3ex;
+    max-height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 17cm;
+}
+#infopanel h2{
+    display: inline-block;
+    width: 100%;
+    height: max-content;
+    padding-bottom: 2ex;
+    margin-bottom: 2ex;
+    border-bottom: dashed;
+}
+#infopanel p{
+    opacity: 1;
+    margin-top: 2ex;
+    margin-bottom: 2ex;
+}
+
+#infopanel p a{
+    color: white;
+    text-decoration: underline;
+}
+
+#closeInfo{
+    position: absolute;
+    top: -1ex;
+    right: -0.5ex;
+    padding: 1ex;
+    font-size: 30pt;
+    cursor: pointer;
+    color: white;
 }

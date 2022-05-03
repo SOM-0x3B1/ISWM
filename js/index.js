@@ -16,6 +16,7 @@ const h2_2 = "PLEASE STAND BY";
 
 async function connect() {
     /*alogin.play();*/
+    aconnect.play();
     document.getElementById('connect').remove();
 
     astartup.play();
@@ -49,23 +50,23 @@ async function connect() {
     let p_1 = document.getElementById('p_1');
     p_1.style.opacity = 1;
     await sleep(30);
-    p_1.style.background = 'var(--main-background-color)'
+    //p_1.style.background = 'var(--main-background-color)'
 
     await sleep(100);
     let time = document.getElementById('time');
     time.style.opacity = 1;
     await sleep(100);
-    time.style.background = 'var(--main-background-color)'
+    //time.style.background = 'var(--main-background-color)'
 
     startCountDown();
 }
 
-function startCountDown() {
+async function startCountDown() {
     abg.play();
 
     let lastPercentage = "0%";
 
-    let x = setInterval(() => {
+    let x = setInterval(async () => {
         let now = new Date().getTime();
 
 
@@ -74,7 +75,9 @@ function startCountDown() {
 
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById('h2').innerHTML = 'UNIVERSE REBOOTED<br>THANK YOU FOR WATCHING';
+
+            aend.play();
+            document.getElementById('h2').innerHTML = 'REBOOT COMPLETE<br>THANK YOU FOR WATCHING';
             document.getElementById('cursor').innerText = '♥';      
             document.getElementById("cursor").style.fontSize = '20pt';     
 
@@ -82,6 +85,10 @@ function startCountDown() {
             document.getElementById("fill").style.width = '100%';
             document.getElementById("p_1").innerText = "THE WEBSITE WILL BE REPURPOSED,";
             document.getElementById("time").innerText = "so don't forget about this place".toUpperCase();
+
+            await sleep(2000);
+            aupdate.play();
+            document.getElementById("info").style.display = 'inline-block';
         }
         else {
 
@@ -102,15 +109,23 @@ function startCountDown() {
                 aupdate.play();
                 lastPercentage = percentage;
                 let perc1 = document.getElementById("percentage");
-
                 perc1.innerText = percentage;
-
-                document.getElementById("fill").style.width = percentage;
+                document.getElementById("fill").style.width = percentage;                
             }
 
             // If the count down is finished, write some text
         }
     }, 1000);
+}
+
+
+function showInfo(){
+    ashow.play();
+    document.getElementById("infopanel").style.display = 'inline-block';
+}
+function closeInfo(){
+    aclose.play();
+    document.getElementById("infopanel").style.display = 'none';
 }
 
 async function sleep(ms) {
