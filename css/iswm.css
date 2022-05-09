@@ -145,7 +145,7 @@ p{
     left: 50%;
     font-size: 20pt;
     transform: translate(-50%, -50%);
-    padding: 2ex;
+    padding: 1ex;
     cursor: pointer;
     text-shadow: 0 0 10px rgb(159, 255, 188);
 }
@@ -249,4 +249,34 @@ p{
     font-size: 30pt;
     cursor: pointer;
     color: white;
+}
+
+#ERROR{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 1ex;    
+}
+
+#ERROR a{
+    font-weight: bold;
+    color: red;
+    text-shadow: 0 0 10px red;        
+}
+
+@keyframes shake {
+    0% { transform: skewX(-60deg); }
+    5% { transform: skewX(60deg); }
+    10% { transform: skewX(-60deg); }
+    15% { transform: skewX(60deg); }
+    20% { transform: skewX(0deg); }
+    60% { transform: skewX(0deg); }  
+    65% { transform: skewX(-60deg); }
+    70% { transform: skewX(60deg); }
+    75% { transform: skewX(-60deg); }
+    80% { transform: skewX(60deg); }
+    100% { transform: skewX(0deg); }
+}  
+.glitch:hover{
+	animation: 0.5s shake infinite alternate;
 }

@@ -8,9 +8,6 @@ const pMinute = pSecond * 60;
 const pHour = pMinute * 60;
 const pDay = pHour * 24;
 
-const countDownDate = new Date("2022-05-02T21:00:00.000+02:00").getTime();
-const originDate = new Date("2022-04-04T21:00:00.000+02:00").getTime();
-
 const h2_1 = "REBOOTING UNIVERSE";
 const h2_2 = "PLEASE STAND BY";
 
@@ -18,6 +15,7 @@ async function connect() {
     /*alogin.play();*/
     aconnect.play();
     document.getElementById('connect').remove();
+    try { document.getElementById('ERROR').remove(); } catch{}
 
     astartup.play();
 
@@ -78,10 +76,10 @@ async function startCountDown() {
 
             aend.play();
             document.getElementById('h2').innerHTML = 'REBOOT COMPLETE<br>THANK YOU FOR WATCHING';
-            document.getElementById('cursor').innerText = '♥';      
-            document.getElementById("cursor").style.fontSize = '20pt';     
+            document.getElementById('cursor').innerText = '♥';
+            document.getElementById("cursor").style.fontSize = '20pt';
 
-            document.getElementById("percentage").innerText = '100%';            
+            document.getElementById("percentage").innerText = '100%';
             document.getElementById("fill").style.width = '100%';
             document.getElementById("p_1").innerText = "THE WEBSITE WILL BE REPURPOSED,";
             document.getElementById("time").innerText = "so don't forget about this place".toUpperCase();
@@ -110,7 +108,7 @@ async function startCountDown() {
                 lastPercentage = percentage;
                 let perc1 = document.getElementById("percentage");
                 perc1.innerText = percentage;
-                document.getElementById("fill").style.width = percentage;                
+                document.getElementById("fill").style.width = percentage;
             }
 
             // If the count down is finished, write some text
@@ -119,11 +117,11 @@ async function startCountDown() {
 }
 
 
-function showInfo(){
+function showInfo() {
     ashow.play();
     document.getElementById("infopanel").style.display = 'inline-block';
 }
-function closeInfo(){
+function closeInfo() {
     aclose.play();
     document.getElementById("infopanel").style.display = 'none';
 }
